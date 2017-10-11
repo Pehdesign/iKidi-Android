@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_ikidi-android" default="compile.module.ikidi-android">
+  <dirname property="module.ikidi-android.basedir" file="${ant.file.module_ikidi-android}"/>
+  
+  <property name="module.jdk.home.ikidi-android" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.ikidi-android" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.ikidi-android" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.ikidi-android" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="ikidi-android.output.dir" value="${module.ikidi-android.basedir}/build/classes/production/iKidi-Android"/>
+  <property name="ikidi-android.testoutput.dir" value="${module.ikidi-android.basedir}/build/classes/test/iKidi-Android"/>
+  
+  <path id="ikidi-android.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="ikidi-android.module.production.classpath">
+    <path refid="${module.jdk.classpath.ikidi-android}"/>
+  </path>
+  
+  <path id="ikidi-android.runtime.production.module.classpath">
+    <pathelement location="${ikidi-android.output.dir}"/>
+  </path>
+  
+  <path id="ikidi-android.module.classpath">
+    <path refid="${module.jdk.classpath.ikidi-android}"/>
+    <pathelement location="${ikidi-android.output.dir}"/>
+  </path>
+  
+  <path id="ikidi-android.runtime.module.classpath">
+    <pathelement location="${ikidi-android.testoutput.dir}"/>
+    <pathelement location="${ikidi-android.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.ikidi-android">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.ikidi-android">
+    <patternset refid="excluded.from.module.ikidi-android"/>
+  </patternset>
+  
+  
+  <target name="compile.module.ikidi-android" depends="compile.module.ikidi-android.production,compile.module.ikidi-android.tests" description="Compile module iKidi-Android"/>
+  
+  <target name="compile.module.ikidi-android.production" depends="register.custom.compilers" description="Compile module iKidi-Android; production classes"/>
+  
+  <target name="compile.module.ikidi-android.tests" depends="register.custom.compilers,compile.module.ikidi-android.production" description="compile module iKidi-Android; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.ikidi-android" description="cleanup module">
+    <delete dir="${ikidi-android.output.dir}"/>
+    <delete dir="${ikidi-android.testoutput.dir}"/>
+  </target>
+</project>
