@@ -2,6 +2,7 @@ package com.ikidi.pehdesign.ikidi_android;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,34 +50,23 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
         }
 
         row.setTag(currentItem);
-//        final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
-//        checkBox.setText(currentItem.getText());
-//        checkBox.setChecked(false);
-//        checkBox.setEnabled(true);
-//
-//        checkBox.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View arg0) {
-//                if (checkBox.isChecked()) {
-//                    checkBox.setEnabled(false);
-//                    if (mContext instanceof MainActivity) {
-//                        MainActivity activity = (MainActivity) mContext;
-//                        activity.checkItem(currentItem);
-//                    }
-//                }
-//            }
-//        });
-
-//        ImageView imageView = (ImageView) row.findViewById(R.id.imageView);
-//        if (currentItem.getImage().length() > 5 ) {
-//            Picasso.with(mContext).load(currentItem.getImage()).into(imageView);
-//        } else {
-//            imageView.setImageResource(R.drawable.brak_zdjecia);
-//        }
 
         final TextView textViewName = (TextView) row.findViewById(R.id.textViewName);
         textViewName.setText(currentItem.getText());
+
+        final TextView learnMore = (TextView) row.findViewById(R.id.learnMore);
+        learnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent itemDetailIntent = new Intent(getContext(), ScrollingActivity.class);
+                itemDetailIntent.putExtra("Key_id", currentItem.getId());
+                itemDetailIntent.putExtra("Title", currentItem.getText());
+
+                mContext.startActivity(itemDetailIntent);
+
+            }
+        });
 
         return row;
     }
