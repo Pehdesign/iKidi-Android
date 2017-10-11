@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -189,7 +190,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
 
-            startActivity(new Intent(this, MainActivity.class));
+            Intent intentStartMainActivity = new Intent(this, MainActivity.class);
+            intentStartMainActivity.putExtra("EmailValue",mEmailView.getText().toString());
+            Log.e("EmailValue", mEmailView.getText().toString());
+            startActivity(intentStartMainActivity);
         }
     }
 
