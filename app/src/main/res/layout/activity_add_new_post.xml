@@ -1,59 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/add_card_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.ikidi.pehdesign.ikidi_android.MainActivity">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="5dp"
+    card_view:cardUseCompatPadding="true">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#71BCFA"
-        android:padding="6dp">
+        android:layout_height="match_parent">
 
-
-        <EditText
-            android:id="@+id/newTitle"
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:layout_weight="1"
-            android:inputType="textAutoCorrect"
-            android:hint="@string/add_textbox_hint_title" >
-            <requestFocus />
-        </EditText>
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/newExpiredDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="date"
-            android:hint="@string/add_textbox_hint_expired_date" >
+            <EditText
+                android:id="@+id/addTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Wpisz tytul"
+                android:paddingLeft="8dp"
+                android:paddingTop="16dp"
+                android:singleLine="true" />
 
-        </EditText>
+            <EditText
+                android:id="@+id/addDataExpired"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Data do"
+                android:inputType="date|datetime"
+                android:paddingLeft="8dp"
+                android:paddingTop="16dp"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/newDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="textAutoCorrect"
-            android:hint="@string/add_textbox_hint_description" >
+            <EditText
+                android:id="@+id/addDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Wpisz Opis"
+                android:paddingLeft="8dp"
+                android:paddingTop="16dp" />
 
-        </EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cancel" />
+
+                <Button
+                    android:id="@+id/okButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="OK" />
+            </LinearLayout>
 
 
-        <Button
-            android:id="@+id/buttonAddToDo"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:onClick="addItem"
-            android:text="@string/add_button_text" />
-
-    </LinearLayout>
-
-</LinearLayout>
+        </TableLayout>
+    </ScrollView>
+</android.support.v7.widget.CardView>
