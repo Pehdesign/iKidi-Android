@@ -2,6 +2,7 @@ package com.ikidi.pehdesign.ikidi_android;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -214,6 +215,15 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }else if (id == R.id.contact_us) {
+
+            Intent intentEmail = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "ikidi@ikidi.ikidi", null));
+            intentEmail.putExtra(Intent.EXTRA_SUBJECT, "subject");
+            intentEmail.putExtra(Intent.EXTRA_TEXT, "text attachment");
+
+            if (intentEmail.resolveActivity(getPackageManager()) != null) {
+                startActivity(intentEmail);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

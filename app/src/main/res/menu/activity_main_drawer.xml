@@ -33,4 +33,14 @@
         </menu>
     </item>
 
+    <item android:title="Contact Us">
+        <menu>
+            <item
+                android:id="@+id/contact_us"
+                android:icon="@drawable/ic_contact_us_email"
+                android:title="@string/contact_us" />
+        </menu>
+    </item>
+
+
 </menu>

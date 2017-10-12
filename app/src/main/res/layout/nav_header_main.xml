@@ -16,14 +16,13 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@drawable/ikidi_logo" />
 
     <TextView
         android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="8dp"
         android:text="iKidi"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

@@ -9,24 +9,26 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikidi.pehdesign.ikidi_android.MainActivity"
     tools:showIn="@layout/app_bar_main">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ProgressBar
-        android:id="@+id/loadingProgressBar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:visibility="gone"/>
-</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+    </RelativeLayout>
 
 
-        <ListView
-            android:id="@+id/listViewToDo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/view_item">
+    <ListView
+        android:id="@+id/listViewToDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/view_item">
 
-        </ListView>
+    </ListView>
 
 </LinearLayout>

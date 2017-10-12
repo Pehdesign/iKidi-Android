@@ -104,5 +104,7 @@
     <string name="large_text">
 Scrolling
     </string>
+    <string name="contact_us">Contact us</string>
+    <string name="title_add_new_post">AddNewPostActivity</string>
 
 </resources>
